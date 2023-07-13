@@ -1,0 +1,12 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	dog := Dog{Id: 1001, Name: "administrator"}
+
+	fmt.Println(dog)
+}
+ 
