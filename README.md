@@ -3,6 +3,14 @@
 
 > 使用 codemirror 调试lsp
 
+- 启动项目
+
+```
+npm install
+npm run dev
+```
+
+
 http://localhost:8080/
 
 

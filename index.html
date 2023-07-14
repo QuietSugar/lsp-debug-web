@@ -1,47 +1,36 @@
 <html>
   <head>
-    <title>CodeMirror Adapter for LSP</title>
+    <title>lsp-debug</title>
     <style>
       .editor {
-        height: 50vh;
+        height: 80vh;
         overflow: auto;
         border-bottom: 1px solid #ccc;
-        max-width: 90vw;
+        max-width: 95vw;
       }
     </style>
   </head>
   <body>
     <h1>CodeMirror - Language Server Protocol</h1>
 
-    <p>This is a live demo of a CodeMirror editor in the browser, which is connected over
-      a web socket to a hosted Language Server which supports HTML, CSS, and JS/Typescript.
-      The <a href="https://github.com/wylieconlon/lsp-editor-adapter">CodeMirror LSP adapter</a>
-      which connects these two is language agnostic, so any
-      language server should work, but are not yet enabled.
-    </p>
+    <p> 基于websocket的CodeMirror编辑器,支持多语言切换</p>
 
-    <p> The available features of the JS/TypeScript language server are most complete, and
-      in this demo you can see:
+    <p> 支持特性:
     </p>
 
     <ul>
-      <li>Highlighted syntax errors</li>
-      <li>Autocompletion with type inference</li>
-      <li>Function signature documentation with types</li>
-      <li>Hover tooltips on symbols</li>
+      <li>高亮语法错误</li>
+      <li>自动补全</li>
+      <li>悬浮提示</li>
     </ul>
-
-    <p><a href="https://github.com/wylieconlon/codemirror-lsp-example">View example on Github</a></p>
+     
+    <p><a href="https://github.com/QuietSugar/lsp-debug-web.git">源码</a></p>
 
     <select class="switcher" name="language">
       <option>golang</option>
       <option>Javascript</option>
-      <option>HTML</option>
-      <option>CSS</option>
     </select>
-
-    <div class="editor"></div>
-
+    <div class="editor "></div>
     <script src="/dist/main.js"></script>
   </body>
 </html>

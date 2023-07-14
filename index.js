@@ -14,6 +14,7 @@ import "lsp-editor-adapter/lib/codemirror-lsp.css";
 import { LspWsConnection, CodeMirrorAdapter } from "lsp-editor-adapter";
 
 import golangCode from "./example-code/go.code";
+import javascriptCode from "./example-code/javascript.code";
 
 let sample = "sample";
 
@@ -23,10 +24,29 @@ let languageMap = {
     wsServer: "ws://172.16.21.94:9999/",
     lspWsServer: "ws://172.16.21.94:9999/", //这个变量可能比 wsServer 多一个后缀
     mode: "golang",
+    languageId: "go",
     value: golangCode,
+    rootUri: "source://admin/default/package_example/",
+    documentUri: "source://admin/default/package_example/main_file.go",
   },
-  html: "file.html",
-  css: "file.css",
+  javascript: {
+    wsServer: "ws://192.168.81.131:9999/",
+    lspWsServer: "ws://192.168.81.131:9999/",
+    mode: "javascript",
+    value: javascriptCode,
+    languageId: "javascript",
+    rootUri: "source://admin/default/javascript/",
+    documentUri: "source://admin/default/javascript/hello.js",
+  },
+  todo: {
+    wsServer: "",
+    lspWsServer: "",
+    mode: "",
+    value: "",
+    languageId: "",
+    rootUri: "",
+    documentUri: "",
+  },
 };
 
 let editor = CodeMirror(document.querySelector(".editor"), {
@@ -66,9 +86,9 @@ function switchSources() {
 
   connection = new LspWsConnection({
     serverUri: languageOpt.lspWsServer,
-    languageId: "go",
-    rootUri: "source://admin/default/package_example/",
-    documentUri: "source://admin/default/package_example/main_file.go",
+    languageId: languageOpt.languageId,
+    rootUri: languageOpt.rootUri,
+    documentUri: languageOpt.documentUri,
     documentText: () => editor.getValue(),
   });
 
